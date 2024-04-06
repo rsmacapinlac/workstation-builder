@@ -5,6 +5,8 @@
   tasks:
     - name: Setup window manager and display manager
       include_tasks: roles/workstation/tasks/desktop_wm.yml
+    - name: Setup terminals
+      include_tasks: roles/workstation/tasks/terminal.yml
     - name: Setup font families
       include_tasks: roles/workstation/tasks/fonts.yml
     - name: Setup flatpak
