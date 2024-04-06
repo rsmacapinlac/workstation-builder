@@ -105,19 +105,19 @@
     creates: ~/.oh-my-zsh
   register: ohmyzsh_installer
 
-- name: Check out github dotfiles
-  become: no
-  ansible.builtin.git:
-    repo: git@github.com:rsmacapinlac/dots.git
-    accept_hostkey: true
-    dest: ~/workspace/dots
+#- name: Check out github dotfiles
+#  become: no
+#  ansible.builtin.git:
+#    repo: git@github.com:rsmacapinlac/dots.git
+#    accept_hostkey: true
+#    dest: ~/workspace/dots
 
-- name: Check out github wallpapers utility
-  become: no
-  ansible.builtin.git:
-    repo: git@github.com:rsmacapinlac/wallpapers.git
-    accept_hostkey: true
-    dest: ~/workspace/wallpapers
+#- name: Check out github wallpapers utility
+#  become: no
+#  ansible.builtin.git:
+#    repo: git@github.com:rsmacapinlac/wallpapers.git
+#    accept_hostkey: true
+#    dest: ~/workspace/wallpapers
 
 - name: Setup rcup with github dotfiles
   become: no
