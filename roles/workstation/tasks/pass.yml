@@ -26,12 +26,12 @@
     - qrencode
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Check out pass repository
-  become: no
-  ansible.builtin.git:
-    repo: git@github.com:rsmacapinlac/cautious-dollop.git
-    accept_hostkey: true
-    dest: ~/.password-store
+#- name: Check out pass repository
+#  become: no
+#  ansible.builtin.git:
+#    repo: git@github.com:rsmacapinlac/cautious-dollop.git
+#    accept_hostkey: true
+#    dest: ~/.password-store
 
 #- name: Install Bitwarden client (debian)
 #  become: yes
