@@ -33,8 +33,8 @@
     accept_hostkey: true
     dest: ~/.password-store
 
-- name: Install Bitwarden client (debian)
-  become: yes
-  flatpak:
-    name: com.bitwarden.desktop
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+#- name: Install Bitwarden client (debian)
+#  become: yes
+#  flatpak:
+#    name: com.bitwarden.desktop
+#  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
