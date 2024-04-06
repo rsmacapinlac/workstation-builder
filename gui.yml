@@ -1,0 +1,21 @@
+---
+- hosts: "workstation"
+  roles:
+    - workstation
+  tasks:
+    - name: Setup window manager and display manager
+      include_tasks: roles/workstation/tasks/desktop_wm.yml
+    - name: Setup font families
+      include_tasks: roles/workstation/tasks/fonts.yml
+    - name: Setup flatpak
+      include_tasks: roles/workstation/tasks/flatpak.yml
+    - name: Setup firefox
+      include_tasks: roles/workstation/tasks/firefox.yml
+    - name: Setup wordprocessing
+      include_tasks: roles/workstation/tasks/wordprocessing.yml
+    - name: Setup productivity tools
+      include_tasks: roles/workstation/tasks/productivity.yml
+    - name: Setup media tools
+      include_tasks: roles/workstation/tasks/media.yml
+    - name: Setup steam
+      include_tasks: roles/workstation/tasks/steam.yml
