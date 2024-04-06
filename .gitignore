@@ -1,0 +1,14 @@
+.vault-pass-file
+.become-pass-file
+.facts.json
+.envrc
+.env
+
+# exclude all host_vars
+host_vars/*
+
+# exclude group_vars with sensitive information
+group_vars/all.yml
+
+# exclude files folder
+/files
