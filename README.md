@@ -7,41 +7,60 @@
     - PermitRootLogin yes (debian)
     - PasswordAuthentication yes (debian)
 - Set static IP (https://www.cyberciti.biz/faq/add-configure-set-up-static-ip-address-on-debianlinux/)
-- scp your id_rsa file
-- ssh-copy-id -i ~/.ssh/id_rsa.pub ritchie@10.1.0.21
-- Install git, sudo
-    - apt install git sudo
-- Add user to sudoers
-    - usermod -aG sudo [username]
+
+- Install git, sudo and then add your user to the sudoers
+
+```
+apt install -y git sudo
+usermod -aG sudo [username]
+```
+
+
 - REBOOT!
+
+- SSH into the terminal
+
+```
+ssh [username]@[ip_address]
+```
+
+- Move over your ID's and make it easier to login
+
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub [username]@[ip_address]
+scp ~/.ssh/id_rsa* [username]@[ip_address]:~/.ssh
+```
 
 ## Setup
 
 - Create 'workspace' folder and clone core repos
 
+```
 mkdir ~/workspace && cd ~/workspace
 git clone git@github.com:rsmacapinlac/workstation-builder.git
 git clone git@github.com:rsmacapinlac/dots.git
 git clone git@github.com:rsmacapinlac/wallpapers.git
 git clone git@github.com:rsmacapinlac/cautious-dollop.git ~/.password-store
+```
 
 - Setup core stuff
 
+```
 cd ~/workspace/workstation-builder
 bin/ansible-init.sh
-
-- Run the core ansible playbook
-
 ansible-playbook core.yml -K
+```
 
 - Reboot!
 
 - Setup dot files
 
-cd ~/workspace/dots
-rcup
+```
+cd ~/workspace/dots && rcup
+```
 
-- Run wal (to remove initial Error)
+- Run wal for the first time (to remove initial Error)
 
+```
 wal -i ~/workspace/wallpapers/Generic
-
+```
