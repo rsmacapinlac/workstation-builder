@@ -1,0 +1,5 @@
+---
+- hosts: "workstations"
+  tasks:
+    - name: 'Complete updates'
+      include_tasks: roles/common/tasks/apt-update.yml

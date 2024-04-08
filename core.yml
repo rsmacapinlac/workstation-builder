@@ -1,12 +1,12 @@
 ---
-- hosts: "workstation"
+- hosts: "workstations"
   roles:
     - common
   tasks:
     - name: Add users
       include_tasks: roles/common/tasks/users.yml
 
-- hosts: "workstation"
+- hosts: "workstations"
   roles:
     - workstation
   tasks:
