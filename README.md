@@ -62,5 +62,5 @@ cd ~/workspace/dots && rcup
 - Run wal for the first time (to remove initial Error)
 
 ```
-wal -i ~/workspace/wallpapers/Generic
+~/workspace/wallpapers/bin/switch_wallpapers
 ```

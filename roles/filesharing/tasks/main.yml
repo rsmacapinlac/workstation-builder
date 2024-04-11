@@ -8,7 +8,7 @@
     - transmission-gtk
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Install transmission-remote 
+- name: Install transmission-remote
   become: yes
   apt:
     name: "{{item}}"
