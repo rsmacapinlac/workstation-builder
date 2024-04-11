@@ -1,0 +1,19 @@
+---
+- name: Remove default torrent
+  become: yes
+  apt:
+    name: "{{item}}"
+    state: absent
+  loop:
+    - transmission-gtk
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install transmission-remote 
+  become: yes
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - transmission-remote-gtk
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
