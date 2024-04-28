@@ -1,7 +1,5 @@
-- name: apt-update
-  become: yes
-  import_tasks: apt-update.yml
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: Update system
+  include_tasks: roles/common/tasks/apt-update.yml
 
 - name: Run the equivalent of "pacman -Sy" as a separate step
   become: yes

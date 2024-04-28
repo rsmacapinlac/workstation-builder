@@ -29,12 +29,18 @@
     - fonts-jetbrains-mono
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+- name: 'Remove tmp folder for neovim'
+  become: yes
+  ansible.builtin.file:
+    path: /tmp/neovim
+    state: absent
+
 - name: Download stable release from the neovim repository
   become: no
   ansible.builtin.git:
     depth: 1
     version: stable
-    repo: https://github.com/neovim/neovim 
+    repo: https://github.com/neovim/neovim
     dest: /tmp/neovim
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 

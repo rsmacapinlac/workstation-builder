@@ -1,5 +1,6 @@
 ---
-- hosts: "workstations"
+- hosts: "raspberrypi"
+  remote_user: pi
   roles:
     - common
   tasks:
@@ -8,7 +9,17 @@
 
 - hosts: "workstations"
   roles:
+    - common
+  tasks:
+    - name: Add users
+      include_tasks: roles/common/tasks/users.yml
+
+- hosts: "workstations:raspberrypis"
+  remote_user: ansible
+  roles:
     - workstation
+    - filesharing
+    - filesyncing
   tasks:
     - name: Setup development
       include_tasks: roles/workstation/tasks/development.yml
