@@ -1,0 +1,16 @@
+---
+- name: "Add AppImage repositories"
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - "ppa:appimagelauncher-team/stable"
+  when: ansible_distribution == 'Ubuntu'
+
+
+- name: "Install AppImageLauncher"
+  ansible.builtin.apt:
+    deb: https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb
+  when: ansible_distribution == 'Debian'
