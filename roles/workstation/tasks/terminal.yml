@@ -1,10 +1,11 @@
-- name: Install alacritty
+- name: Install Debian Terminals
   become: yes
   apt:
     name: "{{item}}"
     state: present
   loop:
     - alacritty
+    - kitty
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install alacritty

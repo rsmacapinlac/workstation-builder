@@ -20,6 +20,8 @@
     - autorandr
     - fd-find
     - pipx
+    - blueman
+    - bluez
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install pywal (pipx)

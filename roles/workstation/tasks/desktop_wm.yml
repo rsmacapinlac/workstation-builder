@@ -57,6 +57,7 @@
     name: "{{item}}"
     state: present
   loop:
+    - piper
     - gnome-tweaks
     - gnome-shell-extension-manager
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
