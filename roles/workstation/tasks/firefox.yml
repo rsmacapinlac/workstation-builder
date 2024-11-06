@@ -43,3 +43,9 @@
   flatpak:
     name: org.mozilla.firefox
   when: ansible_distribution == 'Debian'
+
+- name: Install Zen Browser
+  become: yes
+  flatpak:
+    name: io.github.zen_browser.zen
+  when: ansible_distribution == 'Debian'

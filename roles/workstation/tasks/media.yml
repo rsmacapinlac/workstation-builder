@@ -27,3 +27,11 @@
       - com.ktechpit.wonderwall
       - tech.feliciano.pocket-casts
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install music tools
+  become: yes
+  apt:
+    name:
+      - mpd
+      - ncmpcpp
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
