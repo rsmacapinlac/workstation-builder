@@ -1,23 +1,23 @@
 - name: Add the user 'ansible'
-  become: yes
+  become: true
   ansible.builtin.user:
     name: ansible
     uid: 1001
     shell: /bin/bash
 
 - name: Set authorized key for ansible
-  become: yes
+  become: true
   ansible.posix.authorized_key:
     user: ansible
     state: present
     key: "{{ lookup('file', '../files/onoda.pub') }}"
 
-- name: Install sudo
-  become: true
-  apt:
-    name: sudo
-    state: present
-    update_cache: yes
+#- name: Install sudo
+#  become: true
+#  apt:
+#    name: sudo
+#    state: present
+#    update_cache: yes
 
 - name: Allow the ansible user to sudo
   become: true

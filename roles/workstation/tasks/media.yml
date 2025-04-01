@@ -8,16 +8,6 @@
     - totem-plugins
   tags:
     - debian
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-- name: Install media command line apps
-  become: yes
-  apt:
-    name: "{{item}}"
-    state: present
-  loop:
-    - feh
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install media tools
   become: yes
@@ -26,7 +16,6 @@
       - org.videolan.VLC
       - com.ktechpit.wonderwall
       - tech.feliciano.pocket-casts
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install music tools
   become: yes
@@ -34,4 +23,3 @@
     name:
       - mpd
       - ncmpcpp
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

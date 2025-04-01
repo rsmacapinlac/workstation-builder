@@ -1,0 +1,14 @@
+---
+- name: Remove Firefox
+  become: yes
+  apt:
+    name: "{{item}}"
+    state: absent
+  loop:
+    - firefox
+
+
+- name: Install Zen Browser
+  become: yes
+  flatpak:
+    name: app.zen_browser.zen

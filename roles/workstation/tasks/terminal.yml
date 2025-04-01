@@ -6,13 +6,3 @@
   loop:
     - alacritty
     - kitty
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-- name: Install alacritty
-  become: yes
-  pacman:
-    name: "{{item}}"
-    state: present
-  loop:
-    - alacritty
-  when: ansible_distribution == 'Arch Linux'

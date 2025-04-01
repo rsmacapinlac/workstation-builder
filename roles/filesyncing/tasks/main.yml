@@ -7,4 +7,4 @@
     update_cache: yes
   loop:
     - syncthing
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+

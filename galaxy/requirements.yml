@@ -6,5 +6,9 @@
 #- name: oh-my-zsh 
 #  src: gantsign.oh-my-zsh 
 
+roles:
+  - name: nerdfonts
+    src: ctorgalson.nerdfonts
+
 collections:
   - name: kewlfft.aur

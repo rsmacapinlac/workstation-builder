@@ -6,7 +6,6 @@
     state: absent
   loop:
     - transmission-gtk
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install transmission-remote
   become: yes
@@ -16,4 +15,3 @@
     update_cache: yes
   loop:
     - transmission-remote-gtk
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
