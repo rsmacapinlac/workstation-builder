@@ -30,35 +30,35 @@
     - name: Setup tmux
       include_tasks: roles/workstation/tasks/tmux.yml
 
-- hosts: "desktops"
-  roles:
-    - filesharing
+#- hosts: "desktops"
+#  roles:
+#    - filesharing
     #- appimage
-  vars:
+#  vars:
     # nerdfont variables (https://galaxy.ansible.com/ui/standalone/roles/ctorgalson/nerdfonts/documentation/)
-    nf_user: "ritchie"
-    nf_single_fonts:
-      - AnonymousPro/Bold/AnonymiceProNerdFontMono-Bold.ttf
-      - AnonymousPro/Bold-Italic/AnonymiceProNerdFontMono-BoldItalic.ttf
-      - AnonymousPro/Italic/AnonymiceProNerdFontMono-Italic.ttf
-      - AnonymousPro/Regular/AnonymiceProNerdFontMono-Regular.ttf
-  tasks:
-    - name: Setup window manager and display manager
-      include_tasks: roles/workstation/tasks/desktop_wm.yml
-    - name: Setup browser
-      include_tasks: roles/workstation/tasks/browser.yml
-    - name: Setup terminals
-      include_tasks: roles/workstation/tasks/terminal.yml
-    - name: Setup font families
-      include_tasks: roles/workstation/tasks/fonts.yml
-    - name: Setup productivity tools
-      include_tasks: roles/workstation/tasks/productivity.yml
-    - name: Setup media tools
-      include_tasks: roles/workstation/tasks/media.yml
-    - name: Setup steam
-      include_tasks: roles/workstation/tasks/steam.yml
-    - name: Setup Communications
-      include_tasks: roles/workstation/tasks/communication.yml
-    - name: "Include ansible-role-nerdfonts"
-      include_role:
-        name: "nerdfonts"
+#    nf_user: "ritchie"
+#    nf_single_fonts:
+#      - AnonymousPro/Bold/AnonymiceProNerdFontMono-Bold.ttf
+#      - AnonymousPro/Bold-Italic/AnonymiceProNerdFontMono-BoldItalic.ttf
+#      - AnonymousPro/Italic/AnonymiceProNerdFontMono-Italic.ttf
+#      - AnonymousPro/Regular/AnonymiceProNerdFontMono-Regular.ttf
+#  tasks:
+#    - name: Setup window manager and display manager
+#      include_tasks: roles/workstation/tasks/desktop_wm.yml
+#    - name: Setup browser
+#      include_tasks: roles/workstation/tasks/browser.yml
+#    - name: Setup terminals
+#      include_tasks: roles/workstation/tasks/terminal.yml
+#    - name: Setup font families
+#      include_tasks: roles/workstation/tasks/fonts.yml
+#    - name: Setup productivity tools
+#      include_tasks: roles/workstation/tasks/productivity.yml
+#    - name: Setup media tools
+#      include_tasks: roles/workstation/tasks/media.yml
+#    - name: Setup steam
+#      include_tasks: roles/workstation/tasks/steam.yml
+#    - name: Setup Communications
+#      include_tasks: roles/workstation/tasks/communication.yml
+#    - name: "Include ansible-role-nerdfonts"
+#      include_role:
+#        name: "nerdfonts"
