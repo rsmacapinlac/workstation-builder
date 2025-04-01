@@ -1,6 +1,4 @@
 # other inventory
-inventory/desktops-other.yml
-
 .vault-pass-file
 .become-pass-file
 .facts.json
@@ -15,3 +13,7 @@ group_vars/all.yml
 
 # exclude files folder
 /files
+
+# exclude galaxy folder
+galaxy/roles/*
+galaxy/collections/*
