@@ -1,0 +1,34 @@
+---
+- hosts: "workstations:raspberrypis"
+  remote_user: ansible
+  roles:
+    - windowmanager
+    - filesharing
+  vars:
+    # nerdfont variables (https://galaxy.ansible.com/ui/standalone/roles/ctorgalson/nerdfonts/documentation/)
+    nf_user: "ritchie"
+    nf_single_fonts:
+      - AnonymousPro/Bold/AnonymiceProNerdFontMono-Bold.ttf
+      - AnonymousPro/Bold-Italic/AnonymiceProNerdFontMono-BoldItalic.ttf
+      - AnonymousPro/Italic/AnonymiceProNerdFontMono-Italic.ttf
+      - AnonymousPro/Regular/AnonymiceProNerdFontMono-Regular.ttf
+  tasks:
+    - name: Setup flatpak
+      include_tasks: roles/windowmanager/tasks/flatpak.yml
+    - name: Setup browser
+      include_tasks: roles/windowmanager/tasks/browser.yml
+    - name: Setup terminals
+      include_tasks: roles/windowmanager/tasks/terminal.yml
+    - name: Setup font families
+      include_tasks: roles/windowmanager/tasks/fonts.yml
+    - name: Setup productivity tools
+      include_tasks: roles/windowmanager/tasks/productivity.yml
+    - name: Setup media tools
+      include_tasks: roles/windowmanager/tasks/media.yml
+    - name: Setup steam
+      include_tasks: roles/windowmanager/tasks/steam.yml
+    - name: Setup Communications
+      include_tasks: roles/windowmanager/tasks/communication.yml
+    - name: "Include ansible-role-nerdfonts"
+      include_role:
+        name: "nerdfonts"
