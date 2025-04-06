@@ -1,5 +1,7 @@
 ---
 - hosts: "workstations"
   tasks:
-    - name: 'Complete updates'
+    - name: 'Complete apt updates'
       include_tasks: roles/common/tasks/apt-update.yml
+    - name: 'Complete flatpak updates'
+      include_tasks: roles/common/tasks/flatpak-update.yml
