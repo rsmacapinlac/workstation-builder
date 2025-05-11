@@ -5,7 +5,9 @@
       - md.obsidian.Obsidian
       - com.todoist.Todoist
       - com.discordapp.Discord
+      - com.slack.Slack
       - com.mattjakeman.ExtensionManager
+      - org.kde.krdc
       - com.nextcloud.desktopclient.nextcloud
       - org.gnucash.GnuCash 
 
