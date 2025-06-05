@@ -19,6 +19,7 @@
     #- rcm
     #- https://aur.archlinux.org/packages/rcm/
     #- neofetch
+    - fastfetch
     - autorandr
     #- fd-find
     #- pipx
