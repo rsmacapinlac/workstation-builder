@@ -1,0 +1,18 @@
+- name: Install Ranger and dependencies
+  become: yes
+  pacman:
+    name: "{{item}}"
+    state: present
+  loop:
+    - ranger
+    - mc
+    - atool
+    - elinks
+    - ffmpegthumbnailer
+    - highlight
+    - imagemagick
+    - lynx
+    - mediainfo
+    - transmission-cli
+    - ueberzug
+    - w3m

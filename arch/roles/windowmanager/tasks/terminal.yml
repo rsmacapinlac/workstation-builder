@@ -1,0 +1,8 @@
+- name: Install Terminals
+  become: yes
+  pacman:
+    name: "{{item}}"
+    state: present
+  loop:
+    - alacritty
+    - kitty

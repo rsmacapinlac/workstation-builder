@@ -1,0 +1,37 @@
+---
+- hosts: "workstations"
+  remote_user: ansible
+  roles:
+    - common
+    - workstation
+  tasks:
+    - name: Add users
+      include_tasks: roles/common/tasks/users.yml
+    - name: Setup development
+      include_tasks: roles/workstation/tasks/development.yml
+    - name: Setup filemanagers
+      include_tasks: roles/workstation/tasks/filemanager.yml
+    - name: Setup pass
+      include_tasks: roles/workstation/tasks/pass.yml
+    - name: Setup nvim
+      include_tasks: roles/workstation/tasks/nvim.yml
+    - name: Setup tmux
+      include_tasks: roles/workstation/tasks/tmux.yml
+
+- hosts: "workstations"
+  remote_user: ansible
+  tasks:
+    - name: Setup flatpak
+      include_tasks: roles/windowmanager/tasks/flatpak.yml
+    - name: Setup browser
+      include_tasks: roles/windowmanager/tasks/browser.yml
+    - name: Setup terminals
+      include_tasks: roles/windowmanager/tasks/terminal.yml
+    - name: Setup productivity tools
+      include_tasks: roles/windowmanager/tasks/productivity.yml
+    - name: Setup media tools
+      include_tasks: roles/windowmanager/tasks/media.yml
+    - name: Setup steam
+      include_tasks: roles/windowmanager/tasks/steam.yml
+    - name: Setup Communications
+      include_tasks: roles/windowmanager/tasks/communication.yml

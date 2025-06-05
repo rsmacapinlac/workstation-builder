@@ -1,0 +1,22 @@
+- name: Install productivity tools
+  become: true
+  community.general.flatpak:
+    name:
+      - md.obsidian.Obsidian
+      - com.todoist.Todoist
+      - org.kde.krdc
+      - com.nextcloud.desktopclient.nextcloud
+      - org.gnucash.GnuCash 
+
+#- name: Install AppImageLauncher dependencies 
+#  become: true
+#  apt:
+#    name: "{{item}}"
+#    state: present
+#  loop:
+#    - libcurl3
+
+#- name: Install AppImageLauncher 
+#  become: true
+#  ansible.builtin.apt:
+#    deb: https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.xenial_amd64.deb 
