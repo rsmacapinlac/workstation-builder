@@ -1,0 +1,35 @@
+- name: Install Hyprland
+  become: true
+  pacman:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - sddm
+    - hyprland
+    - dunst
+    - kitty
+    - uwsm
+    - dolphin
+    - wofi
+    - xdg-desktop-portal-hyprland
+    - qt5-wayland
+    - qt6-wayland
+    - polkit-kde-agent
+    - grim
+    - slurp
+
+- name: Install Hyprland Eco system
+  become: true
+  pacman:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - waybar
+    - hyprpaper
+    - hyprpicker
+    - hypridle
+    - hyprlock
+    - hyprcursor
+    - hyprpolkitagent

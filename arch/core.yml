@@ -20,6 +20,8 @@
 
 - hosts: "workstations"
   remote_user: ansible
+  roles:
+    - hyprland
   tasks:
     - name: Setup flatpak
       include_tasks: roles/windowmanager/tasks/flatpak.yml
