@@ -1,3 +1,9 @@
+- name: Remove some defaults
+  become: true
+  pacman:
+    name: dolphin
+    state: absent
+
 - name: Install Hyprland
   become: true
   pacman:
@@ -7,17 +13,27 @@
   loop:
     - sddm
     - hyprland
-    - dunst
+    - mako
     - kitty
     - uwsm
     - dolphin
-    - wofi
+    - rofi-wayland
     - xdg-desktop-portal-hyprland
     - qt5-wayland
     - qt6-wayland
     - polkit-kde-agent
     - grim
     - slurp
+    - swww
+    - thunar
+    - polkit-gnome
+    - gnome-keyring
+    - networkmanager
+    - nm-applet
+    - brightnessctl
+    - bluez
+    - bluez-utils
+    - blueman
 
 - name: Install Hyprland Eco system
   become: true

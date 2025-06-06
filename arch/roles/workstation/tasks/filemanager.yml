@@ -16,3 +16,13 @@
     - transmission-cli
     - ueberzug
     - w3m
+
+- name: Install Thunar and it's plugins 
+  become: yes
+  pacman:
+    name: "{{item}}"
+    state: present
+  loop:
+    - thunar
+    - thunar-archive-plugin
+    - thunar-volman
