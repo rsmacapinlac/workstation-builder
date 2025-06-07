@@ -26,3 +26,6 @@
     - thunar
     - thunar-archive-plugin
     - thunar-volman
+    - gvfs
+    - gvfs-smb
+    - gvfs-dnssd

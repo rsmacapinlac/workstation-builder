@@ -1,9 +1,9 @@
-- name: Install Steam
-  become: yes
-  flatpak:
-    name: "{{item}}"
-  loop:
-    - com.valvesoftware.Steam
+#- name: Install Steam
+#  become: yes
+#  flatpak:
+#    name: "{{item}}"
+#  loop:
+#    - com.valvesoftware.Steam
 
 - name: Install Steam dependencies
   become: yes

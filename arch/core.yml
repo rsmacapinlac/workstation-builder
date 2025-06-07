@@ -25,8 +25,8 @@
   tasks:
     - name: Setup fonts
       include_tasks: roles/windowmanager/tasks/fonts.yml
-    - name: Setup flatpak
-      include_tasks: roles/windowmanager/tasks/flatpak.yml
+    #- name: Setup flatpak
+    #  include_tasks: roles/windowmanager/tasks/flatpak.yml
     - name: Setup browser
       include_tasks: roles/windowmanager/tasks/browser.yml
     - name: Setup terminals

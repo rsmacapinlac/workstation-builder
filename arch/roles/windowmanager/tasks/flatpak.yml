@@ -1,5 +1,5 @@
 
-- name: Install terminal mail stack (ubuntu)
+- name: Install Flatpack
   become: true
   pacman:
     name: "{{item}}"

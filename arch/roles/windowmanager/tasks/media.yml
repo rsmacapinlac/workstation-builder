@@ -7,13 +7,13 @@
     - totem
     - totem-plugins
 
-- name: Install media tools
-  become: yes
-  community.general.flatpak:
-    name:
-      - org.videolan.VLC
-      - com.ktechpit.wonderwall
-      - tech.feliciano.pocket-casts
+#- name: Install media tools
+#  become: yes
+#  community.general.flatpak:
+#    name:
+#      - org.videolan.VLC
+#      - com.ktechpit.wonderwall
+#      - tech.feliciano.pocket-casts
 
 - name: Install music tools
   become: yes

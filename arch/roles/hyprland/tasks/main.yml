@@ -1,8 +1,10 @@
-- name: Remove some defaults
+- name: Remove some defaults from Arch preload 
   become: true
   pacman:
-    name: dolphin
+    name: "{{item}}"
     state: absent
+  loop:
+    - dolphin
 
 - name: Install Hyprland
   become: true
@@ -16,7 +18,6 @@
     - mako
     - kitty
     - uwsm
-    - dolphin
     - rofi-wayland
     - xdg-desktop-portal-hyprland
     - qt5-wayland
@@ -29,7 +30,7 @@
     - polkit-gnome
     - gnome-keyring
     - networkmanager
-    - nm-applet
+    - network-manager-applet
     - brightnessctl
     - bluez
     - bluez-utils
@@ -49,3 +50,11 @@
     - hyprlock
     - hyprcursor
     - hyprpolkitagent
+
+- name: Theme dependencies 
+  become: yes
+  pacman:
+    name: "{{item}}"
+    state: present
+  loop:
+    - ttf-fantasque-sans-mono
