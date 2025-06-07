@@ -36,6 +36,12 @@
     - bluez-utils
     - blueman
 
+- name: Enable and start NetworkManager
+  systemd_service:
+    name: NetworkManager
+    enabled: true
+    state: started
+
 - name: Install Hyprland Eco system
   become: true
   pacman:

@@ -15,6 +15,12 @@
 #      - com.ktechpit.wonderwall
 #      - tech.feliciano.pocket-casts
 
+- name: Install media tools
+  become: yes
+  pacman:
+    name:
+      - vlc
+
 - name: Install music tools
   become: yes
   pacman:
