@@ -107,4 +107,12 @@ cd ~/workspace/dots && rcup
 
 ```
 ~/workspace/wallpapers/bin/switch_wallpapers
+
+## Setup SDDM
+
+Currently obsessed with: https://github.com/Keyitdev/sddm-astronaut-theme/tree/master?tab=readme-ov-file
+```bash
+# All of the above, really like Pixel Sakura
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+```
 ```
