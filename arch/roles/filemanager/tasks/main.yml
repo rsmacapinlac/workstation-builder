@@ -17,15 +17,8 @@
     - ueberzug
     - w3m
 
-- name: Install Thunar and it's plugins 
-  become: yes
+- name: Install Dolphin
+  become: true
   pacman:
-    name: "{{item}}"
+    name: dolphin
     state: present
-  loop:
-    - thunar
-    - thunar-archive-plugin
-    - thunar-volman
-    - gvfs
-    - gvfs-smb
-    - gvfs-dnssd
