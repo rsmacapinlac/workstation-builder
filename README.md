@@ -1,112 +1,120 @@
-# workstation-builder
+# Workstation Builder - Ritchie's System Configuration
 
-This is how I like to setup my computer. It assumes that you have a base install of Linux Mint.
+This repository contains Ansible playbooks and roles for setting up a complete Linux workstation. It works in conjunction with the [dots](https://github.com/rsmacapinlac/dots) repository to provide a complete workstation setup.
 
-# Prerequisites Setup
+## Overview
 
-## Completely blank (Debian)
+The `workstation-builder` repository:
+- Uses Ansible for automated system configuration
+- Handles system-level setup and package installation
+- Configures system-wide settings and services
+- Sets up development environments and tools
+- Works with dots repository for user-specific configurations
 
-- Install the OS (assume debian)
-- Ensure OpenSSH server
-    - PermitRootLogin yes (debian)
-    - PasswordAuthentication yes (debian)
-- Set static IP (https://www.cyberciti.biz/faq/add-configure-set-up-static-ip-address-on-debianlinux/)
+## Relationship with dots
 
-- Install git, sudo and then add your user to the sudoers
+These repositories work together in the following way:
 
-```
-apt install -y git sudo
-usermod -aG sudo [username]
-```
+1. **workstation-builder** (this repo): Handles the initial system setup, including:
+   - Installing required packages and dependencies
+   - Setting up system-wide configurations
+   - Installing development tools and utilities
+   - Configuring system services
+   - Setting up base system requirements
 
+2. **dots**: Manages user-specific configurations:
+   - Application-specific dotfiles
+   - User-level customizations
+   - Personal preferences and settings
+   - Theme and appearance configurations
 
-- REBOOT!
+## Prerequisites Setup
 
-- SSH into the terminal
+### For a Completely Blank System (Debian)
 
-```
-ssh [username]@[ip_address]
-```
+1. Install the OS (assume debian)
+2. Configure OpenSSH server:
+   - Set `PermitRootLogin yes` (debian)
+   - Set `PasswordAuthentication yes` (debian)
+3. Set static IP (https://www.cyberciti.biz/faq/add-configure-set-up-static-ip-address-on-debianlinux/)
 
-- Move over your ID's and make it easier to login
+4. Install git, sudo and add your user to the sudoers:
+   ```bash
+   apt install -y git sudo
+   usermod -aG sudo [username]
+   ```
 
-```
-ssh-copy-id -i ~/.ssh/id_rsa.pub [username]@[ip_address]
-scp ~/.ssh/id_rsa* [username]@[ip_address]:~/.ssh
-```
+5. REBOOT!
 
-## Local Computer
+6. SSH into the terminal:
+   ```bash
+   ssh [username]@[ip_address]
+   ```
 
-- Ensure that you have your private key configured for connecting to Github
-- Ensure correct permissions
+7. Set up SSH keys for easier login:
+   ```bash
+   ssh-copy-id -i ~/.ssh/id_rsa.pub [username]@[ip_address]
+   scp ~/.ssh/id_rsa* [username]@[ip_address]:~/.ssh
+   ```
 
-```bash
-chmod 600 ~/.ssh/id_rsa
-```
+### For Local Computer
 
-## Virtual Machine
+1. Ensure that you have your private key configured for connecting to Github
+2. Set correct permissions:
+   ```bash
+   chmod 600 ~/.ssh/id_rsa
+   ```
 
-- Install the OS (assume debian)
-- Ensure OpenSSH server
-    - PermitRootLogin yes (debian)
-    - PasswordAuthentication yes (debian)
-- Set static IP (https://www.cyberciti.biz/faq/add-configure-set-up-static-ip-address-on-debianlinux/)
+### For Virtual Machine
 
-- Install git, sudo and then add your user to the sudoers
+Follow the same steps as the "Completely Blank System" section above.
 
-```
-apt install -y git sudo
-usermod -aG sudo [username]
-```
+## Setup Process
 
+1. Create workspace folder and clone core repos:
+   ```bash
+   mkdir ~/workspace && cd ~/workspace
+   git clone git@github.com:rsmacapinlac/workstation-builder.git
+   git clone git@github.com:rsmacapinlac/dots.git
+   git clone git@github.com:rsmacapinlac/cautious-dollop.git ~/.password-store
+   ```
 
-- REBOOT!
+2. Setup core system:
+   ```bash
+   cd ~/workspace/workstation-builder
+   bin/ansible-init.sh
+   ansible-playbook core.yml -K
+   ```
 
-- SSH into the terminal
+3. REBOOT!
 
-```
-ssh [username]@[ip_address]
-```
+4. Setup dot files:
+   ```bash
+   cd ~/workspace/dots && rcup
+   ```
 
-- Move over your ID's and make it easier to login
+## Repository Structure
 
-```
-ssh-copy-id -i ~/.ssh/id_rsa.pub [username]@[ip_address]
-scp ~/.ssh/id_rsa* [username]@[ip_address]:~/.ssh
-```
+- `arch/`: Configuration for Arch Linux systems
+- `debian/`: Configuration for Debian-based systems
+- `bin/`: Helper scripts and utilities
+- `roles/`: Ansible roles for different components
+- `playbooks/`: Main Ansible playbooks
 
-## Setup
+## Usage
 
-- Create 'workspace' folder and clone core repos
+After initial setup, you can:
+- Modify playbooks to customize the installation
+- Add new roles for additional software
+- Update existing configurations
 
-```
-mkdir ~/workspace && cd ~/workspace
-git clone git@github.com:rsmacapinlac/workstation-builder.git
-git clone git@github.com:rsmacapinlac/dots.git
-git clone git@github.com:rsmacapinlac/wallpapers.git
-git clone git@github.com:rsmacapinlac/cautious-dollop.git ~/.password-store
-```
+## Contributing
 
-- Setup core stuff
+Feel free to fork this repository and adapt it to your needs. The configuration is designed to be modular and easily customizable.
 
-```
-cd ~/workspace/workstation-builder
-bin/ansible-init.sh
-ansible-playbook core.yml -K
-```
+## License
 
-- Reboot!
-
-- Setup dot files
-
-```
-cd ~/workspace/dots && rcup
-```
-
-- Run wal for the first time (to remove initial Error)
-
-```
-~/workspace/wallpapers/bin/switch_wallpapers
+This project is open source and available under the MIT License.
 
 ## Setup SDDM
 
