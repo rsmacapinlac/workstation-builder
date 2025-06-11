@@ -33,6 +33,21 @@
     enabled: true
     state: started
 
+- name: Install swww system service file
+  template:
+    src: swww-daemon.service.j2
+    dest: /etc/systemd/system/swww-daemon.service
+    mode: '0644'
+  become: true
+
+- name: Enable and start swww system service
+  systemd:
+    name: swww-daemon
+    state: started
+    enabled: true
+    daemon_reload: true
+  become: true
+
 - name: Install Hyprland Eco system
   become: true
   pacman:
