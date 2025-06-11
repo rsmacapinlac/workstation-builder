@@ -55,3 +55,4 @@
     state: present
   loop:
     - ttf-fantasque-sans-mono
+    - ttf-fantasque-nerd
