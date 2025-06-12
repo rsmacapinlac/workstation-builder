@@ -1,0 +1,14 @@
+---
+- name: Install pass
+  become: true
+  pacman:
+    name: pass
+    state: present
+    update_cache: yes
+
+- name: Install pass-otp
+  become: true
+  pacman:
+    name: pass-otp
+    state: present
+    update_cache: yes 

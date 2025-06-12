@@ -1,0 +1,9 @@
+---
+- name: Include base packages configuration
+  include_tasks: ../../base/packages/main.yml
+
+- name: Include base users configuration
+  include_tasks: ../../base/users/main.yml
+
+- name: Include base services configuration
+  include_tasks: ../../base/services/main.yml 

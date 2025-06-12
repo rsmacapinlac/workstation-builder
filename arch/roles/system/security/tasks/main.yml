@@ -1,0 +1,3 @@
+---
+- name: Include pass configuration
+  include_tasks: pass/main.yml 

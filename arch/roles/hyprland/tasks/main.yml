@@ -23,30 +23,29 @@
     - networkmanager
     - network-manager-applet
     - brightnessctl
-    - bluez
-    - bluez-utils
-    - blueman
 
 - name: Enable and start NetworkManager
-  systemd_service:
+  become: true
+  ansible.builtin.systemd:
     name: NetworkManager
-    enabled: true
     state: started
+    enabled: yes
+    daemon_reload: yes
 
 - name: Install swww system service file
-  template:
-    src: swww-daemon.service.j2
-    dest: /etc/systemd/system/swww-daemon.service
-    mode: '0644'
   become: true
+  ansible.builtin.copy:
+    src: swww.service
+    dest: /usr/lib/systemd/system/swww.service
+    mode: '0644'
 
 - name: Enable and start swww system service
-  systemd:
-    name: swww-daemon
-    state: started
-    enabled: true
-    daemon_reload: true
   become: true
+  ansible.builtin.systemd:
+    name: swww
+    state: started
+    enabled: yes
+    daemon_reload: yes
 
 - name: Install Hyprland Eco system
   become: true
@@ -63,11 +62,12 @@
     - hyprcursor
     - hyprpolkitagent
 
-- name: Theme dependencies 
-  become: yes
+- name: Theme dependencies
+  become: true
   pacman:
     name: "{{item}}"
     state: present
+    update_cache: yes
   loop:
     - ttf-fantasque-sans-mono
     - ttf-fantasque-nerd

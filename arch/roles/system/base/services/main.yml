@@ -1,0 +1,23 @@
+---
+- name: Run the equivalent of "pacman -Sy" as a separate step
+  become: yes
+  community.general.pacman:
+    update_cache: true
+
+- name: Install system services
+  become: true
+  pacman:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - bluez
+    - bluez-utils
+
+- name: Enable and start bluetooth service
+  become: true
+  ansible.builtin.systemd:
+    name: bluetooth
+    state: started
+    enabled: yes
+    daemon_reload: yes 

@@ -1,0 +1,24 @@
+---
+- name: Change Ritchie's shell to zsh
+  become: true
+  user:
+    name: ritchie
+    shell: /bin/zsh
+
+- name: Is oh-my-zsh installed
+  ansible.builtin.file:
+    path: ~/.oh-my-zsh
+    force: yes
+    state: absent
+
+- name: Download oh-my-zsh installer
+  become: true
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install.sh
+
+- name: Install oh-my-zsh
+  ansible.builtin.command:
+    cmd: sh /tmp/install.sh
+    creates: ~/.oh-my-zsh
+  register: ohmyzsh_installer 
