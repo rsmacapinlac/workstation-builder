@@ -36,13 +36,18 @@
   become: true
   ansible.builtin.copy:
     src: swww.service
-    dest: /usr/lib/systemd/system/swww.service
+    dest: /etc/systemd/system/swww.service
     mode: '0644'
+
+- name: Reload systemd daemon
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: yes
 
 - name: Enable and start swww system service
   become: true
   ansible.builtin.systemd:
-    name: swww
+    name: swww.service
     state: started
     enabled: yes
     daemon_reload: yes

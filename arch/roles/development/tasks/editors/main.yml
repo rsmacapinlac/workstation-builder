@@ -1,0 +1,18 @@
+---
+# Editor setup tasks
+
+- name: Install editor packages
+  become: true
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - neovim
+    - vim
+
+- name: Install Cursor (AUR)
+  kewlfft.aur.aur:
+    name: cursor-bin
+    use: yay
+    state: present 

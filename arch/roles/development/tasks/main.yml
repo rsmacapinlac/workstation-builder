@@ -1,0 +1,11 @@
+---
+# Development environment setup tasks
+
+- name: Include packages setup
+  ansible.builtin.import_tasks: packages/main.yml
+
+- name: Include editors setup
+  ansible.builtin.import_tasks: editors/main.yml
+
+- name: Include tools setup
+  ansible.builtin.import_tasks: tools/main.yml 

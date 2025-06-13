@@ -1,0 +1,15 @@
+---
+# Development tools setup
+
+- name: Install RVM
+  become: no
+  shell: "curl -sSL https://get.rvm.io | bash"
+  args:
+    creates: "{{ ansible_env.HOME }}/.rvm"
+
+- name: Clone TPM repository
+  become: no
+  git:
+    depth: 1
+    repo: 'https://github.com/tmux-plugins/tpm.git'
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm" 

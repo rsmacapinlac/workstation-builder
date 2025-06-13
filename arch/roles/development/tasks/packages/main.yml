@@ -1,0 +1,16 @@
+---
+# Development packages setup
+
+- name: Install development packages
+  become: true
+  pacman:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - tmux
+    - ruby
+    - ripgrep
+    - fd
+    - xclip
+    - python-pynvim 
