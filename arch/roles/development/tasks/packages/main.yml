@@ -10,6 +10,7 @@
   loop:
     - tmux
     - ruby
+    - ruby-erb
     - ripgrep
     - fd
     - xclip
