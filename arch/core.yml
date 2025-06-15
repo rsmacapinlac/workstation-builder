@@ -16,6 +16,7 @@
     - hyprland
     - filemanager
     - development
+    - work
   tasks:
     - name: Setup fonts
       include_tasks: roles/windowmanager/tasks/fonts.yml

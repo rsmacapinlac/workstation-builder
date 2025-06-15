@@ -1,0 +1,5 @@
+- name: Install Citrix Client 
+  kewlfft.aur.aur:
+    name: icaclient 
+    use: yay
+    state: present 
