@@ -23,6 +23,7 @@
     - networkmanager
     - network-manager-applet
     - brightnessctl
+    - pavucontrol
 
 - name: Enable and start sddm
   become: true
