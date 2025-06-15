@@ -4,8 +4,9 @@
   roles:
     - system/base
     - system/security
-    - development
   tasks:
+    - name: Setup workstation
+      include_tasks: roles/workstation/tasks/main.yml
     - name: Setup nvim
       include_tasks: roles/workstation/tasks/nvim.yml
 
@@ -14,6 +15,7 @@
   roles:
     - hyprland
     - filemanager
+    - development
   tasks:
     - name: Setup fonts
       include_tasks: roles/windowmanager/tasks/fonts.yml
