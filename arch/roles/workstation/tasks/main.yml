@@ -1,3 +1,19 @@
+---
+# Input variables
+- name: Define core package list
+  set_fact:
+    core_packages:
+      - curl
+      - vim
+      - base-devel
+      - git
+      - nodejs
+      - npm
+      - fastfetch
+      - autorandr
+      - syncthing
+
+# Package installation function
 - name: Install core tools
   become: true
   pacman:
@@ -29,22 +45,7 @@
 #  community.general.pipx:
 #    name: pywal
 
-- name: Clone Yay repository
-  ansible.builtin.git:
-    repo: 'https://aur.archlinux.org/yay.git'
-    dest: '/tmp/yay'
-    clone: yes
-
-- name: Build and install Yay
-  ansible.builtin.command:
-    chdir: '/tmp/yay'
-    cmd: 'makepkg -si --noconfirm'
-
-- name: Remove temporary directory
-  ansible.builtin.file:
-    path: '/tmp/yay'
-    state: absent
-
+# Dotfiles management function
 - name: Install rcup
   kewlfft.aur.aur:
     use: makepkg
@@ -55,3 +56,14 @@
 - name: Setup rcup with github dotfiles
   ansible.builtin.command: env RCRC=$HOME/workspace/dots/rcrc rcup -f
   register: rcup_output
+
+# Workstation setup tasks
+
+- name: Include core packages setup
+  ansible.builtin.import_tasks: packages/main.yml
+
+- name: Include AUR helper setup
+  ansible.builtin.import_tasks: aur/main.yml
+
+- name: Include dotfiles setup
+  ansible.builtin.import_tasks: dotfiles/main.yml

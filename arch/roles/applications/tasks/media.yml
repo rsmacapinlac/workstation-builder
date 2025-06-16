@@ -1,0 +1,52 @@
+---
+# Media tools configuration
+
+- name: Remove default Gnome video (totem)
+  become: yes
+  pacman:
+    name: "{{item}}"
+    state: absent
+  loop:
+    - totem
+    - totem-plugins
+
+#- name: Install media tools
+#  become: yes
+#  community.general.flatpak:
+#    name:
+#      - org.videolan.VLC
+#      - com.ktechpit.wonderwall
+#      - tech.feliciano.pocket-casts
+
+- name: Install media tools
+  become: yes
+  pacman:
+    name:
+      - vlc
+
+- name: Install music tools
+  become: yes
+  pacman:
+    name:
+      - mpd
+      - ncmpcpp
+
+- name: Copy mpd systemd service file
+  become: true
+  ansible.builtin.copy:
+    src: ../../desktop/tasks/files/mpd.service
+    dest: /etc/systemd/system/mpd.service
+    mode: '0644'
+
+- name: Reload systemd daemon for mpd
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Enable and start mpd service
+  become: true
+  ansible.builtin.systemd:
+    name: mpd.service
+    state: started
+    enabled: yes
+    daemon_reload: yes 

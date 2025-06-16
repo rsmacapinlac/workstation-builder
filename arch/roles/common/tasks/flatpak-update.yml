@@ -1,4 +1,0 @@
-- name: Update Flatpaks
-  shell:
-    cmd: flatpak update --noninteractive
-  become: true

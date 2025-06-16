@@ -1,0 +1,14 @@
+---
+# Desktop environment setup tasks
+
+- name: Include Hyprland setup
+  ansible.builtin.import_tasks: hyprland/main.yml
+
+- name: Include fonts setup
+  ansible.builtin.import_tasks: fonts.yml
+
+- name: Include terminal setup
+  ansible.builtin.import_tasks: terminal.yml
+
+- name: Include file manager setup
+  ansible.builtin.import_tasks: filemanager.yml 

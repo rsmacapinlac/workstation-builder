@@ -8,4 +8,7 @@
   ansible.builtin.import_tasks: editors/main.yml
 
 - name: Include tools setup
-  ansible.builtin.import_tasks: tools/main.yml 
+  ansible.builtin.import_tasks: tools/main.yml
+
+- name: Include RVM setup
+  ansible.builtin.import_tasks: rvm.yml 

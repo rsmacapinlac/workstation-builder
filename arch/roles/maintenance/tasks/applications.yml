@@ -1,0 +1,7 @@
+---
+# Application maintenance tasks
+
+- name: Update Flatpaks
+  become: true
+  shell:
+    cmd: flatpak update --noninteractive 

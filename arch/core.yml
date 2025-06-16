@@ -4,33 +4,12 @@
   roles:
     - system/base
     - system/security
+    - workstation
+    - desktop
+    - applications
+    - work
   tasks:
     - name: Setup workstation
       include_tasks: roles/workstation/tasks/main.yml
     - name: Setup nvim
       include_tasks: roles/workstation/tasks/nvim.yml
-
-- hosts: "workstations"
-  remote_user: ansible
-  roles:
-    - hyprland
-    - filemanager
-    - development
-    - work
-  tasks:
-    - name: Setup fonts
-      include_tasks: roles/windowmanager/tasks/fonts.yml
-    #- name: Setup flatpak
-    #  include_tasks: roles/windowmanager/tasks/flatpak.yml
-    - name: Setup browser
-      include_tasks: roles/windowmanager/tasks/browser.yml
-    - name: Setup terminals
-      include_tasks: roles/windowmanager/tasks/terminal.yml
-    - name: Setup productivity tools
-      include_tasks: roles/windowmanager/tasks/productivity.yml
-    - name: Setup media tools
-      include_tasks: roles/windowmanager/tasks/media.yml
-    - name: Setup steam
-      include_tasks: roles/windowmanager/tasks/steam.yml
-    - name: Setup Communications
-      include_tasks: roles/windowmanager/tasks/communication.yml

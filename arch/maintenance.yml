@@ -1,0 +1,5 @@
+---
+- hosts: "workstations"
+  remote_user: ansible
+  roles:
+    - maintenance 

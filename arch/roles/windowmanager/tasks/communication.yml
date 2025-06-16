@@ -1,9 +1,0 @@
----
-# TODO: fix this Ritchie
-#- name: Install Chat apps
-#  become: true
-#  community.general.flatpak:
-#    name:
-#      - org.signal.Signal
-#      - com.discordapp.Discord
-#      - com.slack.Slack

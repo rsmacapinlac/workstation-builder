@@ -1,0 +1,12 @@
+---
+# Dotfiles management setup
+
+- name: Install rcm package
+  kewlfft.aur.aur:
+    use: makepkg
+    state: present
+    name: rcm
+
+- name: Setup rcup with github dotfiles
+  ansible.builtin.command: env RCRC=$HOME/workspace/dots/rcrc rcup -f
+  register: rcup_output 

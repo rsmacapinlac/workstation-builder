@@ -1,0 +1,29 @@
+---
+# Font configuration
+
+- name: Install recommended fonts
+  become: yes
+  pacman:
+    name: "{{item}}"
+    state: present
+  loop:
+    - ttf-font-awesome
+    #- fonts-crosextra-caladea
+    #- fonts-crosextra-carlito
+    #- ttf-dejavu
+    #- fonts-liberation
+    #- fonts-noto
+    #- fonts-open-sans
+    #- otf-overpass
+    #- fonts-roboto
+    #- fonts-tex-gyre
+    #- ttf-ubuntu-font-family
+    #- fonts-noto-cjk
+    #- fonts-noto-color-emoji
+    #- fonts-noto-extra
+    #- fonts-font-awesome
+    #- ttc-iosevka
+    #- fonts-inconsolata
+    #- fonts-anonymous-pro
+    #- fonts-jetbrains-mono
+    #- fonts-material-design-icons-iconfont 

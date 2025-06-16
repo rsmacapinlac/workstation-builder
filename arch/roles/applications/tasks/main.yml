@@ -1,0 +1,20 @@
+---
+# Application installation tasks
+
+- name: Include browser setup
+  ansible.builtin.import_tasks: browser.yml
+
+- name: Include productivity setup
+  ansible.builtin.import_tasks: productivity.yml
+
+- name: Include media setup
+  ansible.builtin.import_tasks: media.yml
+
+- name: Include steam setup
+  ansible.builtin.import_tasks: steam.yml
+
+- name: Include communication setup
+  ansible.builtin.import_tasks: communication.yml
+
+- name: Include Flatpak setup
+  ansible.builtin.import_tasks: flatpak.yml 
