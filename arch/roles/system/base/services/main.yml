@@ -11,8 +11,13 @@
     state: present
     update_cache: yes
   loop:
+    - blueman
     - bluez
     - bluez-utils
+    #- pulseaudio-bluetooth
+    - pipewire
+    - pipewire-pulse
+    - wireplumber
 
 - name: Enable and start bluetooth service
   become: true
