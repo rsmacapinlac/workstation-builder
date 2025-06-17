@@ -101,6 +101,13 @@ Follow the same steps as the "Completely Blank System" section above.
 - `roles/`: Ansible roles for different components
 - `playbooks/`: Main Ansible playbooks
 
+## Setting up pass
+
+```bash
+gpg --import your_public_key_file.pgp
+gpg --allow-secret-key-import --import your_private_key_file.pgp
+```
+
 ## Usage
 
 After initial setup, you can:
