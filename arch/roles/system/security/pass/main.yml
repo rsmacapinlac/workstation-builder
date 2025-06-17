@@ -12,3 +12,12 @@
     name: pass-otp
     state: present
     update_cache: yes 
+
+- name: Install pass dependencies
+  become: true
+  pacman:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - wl-clipboard
