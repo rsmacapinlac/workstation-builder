@@ -5,11 +5,7 @@
     - system/base
     - system/security
     - workstation
+    - development
     - desktop
     - applications
     - work
-  tasks:
-    - name: Setup workstation
-      include_tasks: roles/workstation/tasks/main.yml
-    - name: Setup nvim
-      include_tasks: roles/workstation/tasks/nvim.yml

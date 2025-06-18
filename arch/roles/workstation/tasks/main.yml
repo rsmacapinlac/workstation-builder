@@ -1,51 +1,6 @@
 ---
-# Input variables
-- name: Define core package list
-  set_fact:
-    core_packages:
-      - curl
-      - vim
-      - base-devel
-      - git
-      - nodejs
-      - npm
-      - fastfetch
-      - autorandr
-      - syncthing
+# Workstation setup tasks
 
-# Package installation function
-- name: Install core tools
-  become: true
-  pacman:
-    name: "{{item}}"
-    state: present
-    update_cache: yes
-  loop:
-    - curl
-    - vim
-    - base-devel
-    #- xvfb
-    #- software-properties-common
-    #- apt-transport-https
-    - git
-    #- dirmngr
-    - nodejs
-    - npm
-    #- rcm
-    #- https://aur.archlinux.org/packages/rcm/
-    #- neofetch
-    - fastfetch
-    - autorandr
-    #- fd-find
-    #- pipx
-    - syncthing
-    #- wireguard
-
-#- name: Install pywal (pipx)
-#  community.general.pipx:
-#    name: pywal
-
-# Dotfiles management function
 - name: Install rcup
   kewlfft.aur.aur:
     use: makepkg
@@ -56,11 +11,6 @@
 - name: Setup rcup with github dotfiles
   ansible.builtin.command: env RCRC=$HOME/workspace/dots/rcrc rcup -f
   register: rcup_output
-
-# Workstation setup tasks
-
-- name: Include core packages setup
-  ansible.builtin.import_tasks: packages/main.yml
 
 - name: Include AUR helper setup
   ansible.builtin.import_tasks: aur/main.yml

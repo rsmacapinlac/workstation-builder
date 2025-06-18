@@ -9,6 +9,7 @@
     - pass-otp
     - xclip
     - qrencode
+    - qtpass
 
 
 #- name: Install auxiliary tools (debian)
