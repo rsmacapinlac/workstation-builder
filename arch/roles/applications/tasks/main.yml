@@ -16,5 +16,8 @@
 - name: Include communication setup
   ansible.builtin.import_tasks: communication.yml
 
+- name: Include mail client setup
+  ansible.builtin.import_tasks: mail.yml
+
 - name: Include Flatpak setup
   ansible.builtin.import_tasks: flatpak.yml 

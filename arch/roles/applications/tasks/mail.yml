@@ -1,0 +1,33 @@
+---
+# Terminal mail client setup (Neomutt, isync, msmtp)
+# Based on: https://seniormars.com/posts/neomutt/
+
+- name: Install terminal mail client packages
+  become: true
+  pacman:
+    name:
+      # Core mail client
+      - neomutt
+      # Email synchronization
+      - isync
+      # SMTP client for sending emails
+      - msmtp
+      # Encryption and security
+      - gnupg
+      # Additional useful tools
+      - notmuch
+      - urlscan
+      - lynx
+      - w3m
+      # For viewing images in terminal
+      - imagemagick
+      # For better terminal display
+      - kitty-terminfo
+    state: present
+    update_cache: true
+
+- name: Install lbdb (AUR)
+  kewlfft.aur.aur:
+    name: lbdb
+    use: yay
+    state: present 

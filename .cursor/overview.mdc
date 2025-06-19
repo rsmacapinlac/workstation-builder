@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Workstation Builder Repository Overview
+
+> **Note:** Always consult the latest `README.md` file in this repository for the most up-to-date and authoritative information about setup, structure, and usage.
+
+This repository contains Ansible playbooks and roles for setting up a complete Linux workstation. It is designed to work in conjunction with the `dots` repository for a full system and user configuration.
+
+## Purpose
+- Automate system-level setup and package installation
+- Configure system-wide settings and services
+- Set up development environments and tools
+- Provide reproducible infrastructure for Linux workstations
+
+## Structure
+- `arch/`: Configuration for Arch Linux systems
+- `debian/`: Configuration for Debian-based systems
+- `roles/`: Ansible roles for different components
+- `bin/`: Helper scripts and utilities
+
+## Testing
+To test Ansible playbooks:
+```bash
+cd ~/workspace/workstation-builder/arch
+ansible-playbook core.yml -K --check
+```
+
+- Use `--check` flag for dry-run testing
+- Use `-v` for verbose output
+- Test specific roles with targeted playbooks
+
+## Relationship to dots
+- `workstation-builder` sets up the system, installs packages, and configures services
+- `dots` applies user-level and application-specific configuration
+- Both are designed to be modular and easily customizable
