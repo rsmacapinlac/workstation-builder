@@ -20,14 +20,13 @@ This repository contains Ansible playbooks and roles for setting up a complete L
 - `debian/`: Configuration for Debian-based systems
 - `bin/`: Helper scripts and utilities
 
-## Testing
-To test Ansible playbooks:
+## Testing the Arch playbook
+To test Ansible Arch playbooks:
 ```bash
 cd ~/workspace/workstation-builder/arch
-ansible-playbook core.yml -K --check
+ansible-playbook core.yml -K -vv
 ```
 
-- Use `--check` flag for dry-run testing
 - Use `-v` for verbose output
 - Test specific roles with targeted playbooks
 

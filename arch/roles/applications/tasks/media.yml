@@ -30,23 +30,51 @@
     name:
       - mpd
       - ncmpcpp
+      - mpc
 
-- name: Copy mpd systemd service file
+- name: Ensure proper locale for music applications
   become: true
-  ansible.builtin.copy:
-    src: ../../desktop/tasks/files/mpd.service
-    dest: /etc/systemd/system/mpd.service
-    mode: '0644'
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: "LC_ALL=en_US.UTF-8"
+    state: present
+    create: yes
 
-- name: Reload systemd daemon for mpd
+- name: Generate en_US.UTF-8 locale
   become: true
-  ansible.builtin.systemd:
-    daemon_reload: yes
+  ansible.builtin.command: locale-gen en_US.UTF-8
+  args:
+    creates: /usr/lib/locale/en_US.UTF-8
 
-- name: Enable and start mpd service
+- name: Stop and disable system mpd service if running
   become: true
   ansible.builtin.systemd:
     name: mpd.service
-    state: started
-    enabled: yes
-    daemon_reload: yes 
+    state: stopped
+    enabled: no
+
+- name: Create MPD user service directory
+  become: true
+  become_user: ritchie
+  ansible.builtin.file:
+    path: "~/.config/systemd/user"
+    state: directory
+    mode: '0755'
+
+- name: Copy mpd user service file
+  become: true
+  become_user: ritchie
+  ansible.builtin.copy:
+    src: ../../desktop/tasks/files/mpd.service
+    dest: ~/.config/systemd/user/mpd.service
+    mode: '0644'
+
+- name: Reload user systemd daemon for mpd
+  become: true
+  become_user: ritchie
+  ansible.builtin.command: systemctl --user daemon-reload
+
+- name: Enable and start mpd user service
+  become: true
+  become_user: ritchie
+  ansible.builtin.command: systemctl --user enable --now mpd.service 
