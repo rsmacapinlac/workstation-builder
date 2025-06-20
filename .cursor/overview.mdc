@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Workstation Builder Repository Overview
 
@@ -18,7 +18,6 @@ This repository contains Ansible playbooks and roles for setting up a complete L
 ## Structure
 - `arch/`: Configuration for Arch Linux systems
 - `debian/`: Configuration for Debian-based systems
-- `roles/`: Ansible roles for different components
 - `bin/`: Helper scripts and utilities
 
 ## Testing

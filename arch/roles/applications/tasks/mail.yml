@@ -23,6 +23,15 @@
       - imagemagick
       # For better terminal display
       - kitty-terminfo
+      # File viewers (used in mailcap)
+      - feh
+      - zathura
+      # Office document handling
+      - libreoffice-still
+      # Archive handling
+      - unzip
+      - unrar
+      - p7zip
     state: present
     update_cache: true
 
