@@ -11,4 +11,7 @@
   ansible.builtin.import_tasks: terminal.yml
 
 - name: Include file manager setup
-  ansible.builtin.import_tasks: filemanager.yml 
+  ansible.builtin.import_tasks: filemanager.yml
+
+- name: Include user services setup
+  ansible.builtin.import_tasks: user-services.yml 

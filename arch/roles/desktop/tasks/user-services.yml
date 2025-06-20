@@ -1,0 +1,16 @@
+---
+# User services configuration for ritchie
+
+- name: Enable and start hypridle user service
+  become: true
+  become_user: ritchie
+  ansible.builtin.command: systemctl --user enable --now hypridle.service
+  args:
+    creates: "~/.config/systemd/user/hypridle.service"
+
+- name: Enable and start syncthing user service
+  become: true
+  become_user: ritchie
+  ansible.builtin.command: systemctl --user enable --now syncthing.service
+  args:
+    creates: "~/.config/systemd/user/syncthing.service" 
