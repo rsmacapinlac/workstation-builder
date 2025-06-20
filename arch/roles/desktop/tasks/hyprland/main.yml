@@ -12,6 +12,7 @@
     - sddm
     - hyprland
     - mako
+    - libnotify
     - kitty
     - uwsm
     - rofi-wayland
