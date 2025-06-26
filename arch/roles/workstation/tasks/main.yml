@@ -8,10 +8,6 @@
     name:
       - rcm 
 
-- name: Setup rcup with github dotfiles
-  ansible.builtin.command: env RCRC=$HOME/workspace/dots/rcrc rcup -f
-  register: rcup_output
-
 - name: Include AUR helper setup
   ansible.builtin.import_tasks: aur/main.yml
 

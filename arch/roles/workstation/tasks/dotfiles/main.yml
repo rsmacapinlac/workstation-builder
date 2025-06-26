@@ -7,6 +7,20 @@
     state: present
     name: rcm
 
+- name: Ensure workspace directory exists
+  file:
+    path: "{{ ansible_env.HOME }}/workspace"
+    state: directory
+    mode: '0755'
+
+- name: Clone dots repository
+  ansible.builtin.git:
+    repo: 'git@github.com:rsmacapinlac/dots.git'
+    dest: "{{ ansible_env.HOME }}/workspace/dots"
+    force: yes
+    accept_hostkey: yes
+
 - name: Setup rcup with github dotfiles
   ansible.builtin.command: env RCRC=$HOME/workspace/dots/rcrc rcup -f
-  register: rcup_output 
+  register: rcup_output
+  failed_when: rcup_output.rc != 0 
