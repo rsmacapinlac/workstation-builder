@@ -17,6 +17,7 @@
       - nextcloud-client
       - obsidian
       - todoist-appimage
+      - claude-code
 
 #- name: Install productivity tools
 #  become: true
