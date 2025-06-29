@@ -18,6 +18,7 @@
       - obsidian
       - todoist-appimage
       - claude-code
+      - zoom
 
 #- name: Install productivity tools
 #  become: true
