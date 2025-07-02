@@ -19,6 +19,8 @@
       - todoist-appimage
       - claude-code
       - zoom
+      # https://github.com/caarlos0/timer
+      - timer-bin
 
 #- name: Install productivity tools
 #  become: true
