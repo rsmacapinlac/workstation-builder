@@ -31,6 +31,8 @@
       - mpd
       - ncmpcpp
       - mpc
+      - beets
+      - python-requests
 
 - name: Ensure proper locale for music applications
   become: true
