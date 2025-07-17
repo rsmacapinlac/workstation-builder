@@ -33,6 +33,7 @@
       - mpc
       - beets
       - python-requests
+      - rmpc
 
 - name: Ensure proper locale for music applications
   become: true
