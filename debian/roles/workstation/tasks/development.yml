@@ -1,3 +1,16 @@
+- name: Add lazygit PPA
+  become: true
+  apt_repository:
+    repo: ppa:lazygit-team/release
+    state: present
+
+- name: Install lazygit
+  become: true
+  apt:
+    name: lazygit
+    state: present
+    update_cache: yes
+
 - name: Install RVM
   shell: "curl -sSL https://get.rvm.io | bash"
 
