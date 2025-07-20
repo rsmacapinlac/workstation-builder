@@ -8,6 +8,7 @@
     state: present
   loop:
     - ttf-font-awesome
+    - ttf-ibmplex-mono-nerd
     #- fonts-crosextra-caladea
     #- fonts-crosextra-carlito
     #- ttf-dejavu

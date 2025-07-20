@@ -7,6 +7,13 @@
   args:
     creates: "{{ ansible_env.HOME }}/.rvm"
 
+- name: Install tmuxinator gem
+  become: no
+  shell: "source ~/.rvm/scripts/rvm && gem install tmuxinator"
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.rvm/gems/ruby-3.2.0/bin/tmuxinator"
+
 - name: Clone TPM repository
   become: no
   git:
