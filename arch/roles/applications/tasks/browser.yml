@@ -9,6 +9,7 @@
   loop:
     - firefox
     - qutebrowser
+    - yt-dlp
 
 #- name: Install Zen Browser
 #  become: yes
