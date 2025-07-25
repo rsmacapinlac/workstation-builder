@@ -9,6 +9,7 @@
   loop:
     - ttf-font-awesome
     - ttf-ibmplex-mono-nerd
+    - ttf-nerd-fonts-symbols
     #- fonts-crosextra-caladea
     #- fonts-crosextra-carlito
     #- ttf-dejavu
