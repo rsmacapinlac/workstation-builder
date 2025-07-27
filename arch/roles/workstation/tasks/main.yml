@@ -6,7 +6,8 @@
     use: makepkg
     state: present
     name:
-      - rcm 
+      - rcm
+  become: no 
 
 - name: Include AUR helper setup
   ansible.builtin.import_tasks: aur/main.yml

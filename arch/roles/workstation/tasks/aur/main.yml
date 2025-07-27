@@ -1,16 +1,33 @@
 ---
 # AUR helper (Yay) installation
 
+- name: Remove any existing yay build directory
+  ansible.builtin.file:
+    path: '/tmp/yay'
+    state: absent
+
 - name: Clone Yay repository
   ansible.builtin.git:
     repo: 'https://aur.archlinux.org/yay.git'
     dest: '/tmp/yay'
     clone: yes
 
-- name: Build and install Yay
+- name: Build Yay package
   ansible.builtin.command:
     chdir: '/tmp/yay'
-    cmd: 'makepkg -si --noconfirm'
+    cmd: 'makepkg -f --noconfirm'
+  become: no
+
+- name: Find built yay package
+  ansible.builtin.find:
+    paths: '/tmp/yay'
+    patterns: 'yay-*.pkg.tar.zst'
+  register: yay_package
+
+- name: Install Yay package
+  ansible.builtin.package:
+    name: '{{ yay_package.files[0].path }}'
+    state: present
 
 - name: Remove temporary directory
   ansible.builtin.file:

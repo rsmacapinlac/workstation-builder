@@ -21,6 +21,7 @@
       - zoom
       # https://github.com/caarlos0/timer
       - timer-bin
+  become: no
 
 #- name: Install productivity tools
 #  become: true

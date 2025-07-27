@@ -1,4 +1,13 @@
 ---
+- name: Remove KDE polkit packages
+  become: true
+  pacman:
+    name: "{{item}}"
+    state: absent
+  loop:
+    - polkit-kde-agent
+    - ksshaskpass
+
 - name: Install base system packages
   become: true
   pacman:
@@ -15,4 +24,5 @@
     - npm
     - fastfetch
     - autorandr
-    - syncthing 
+    - syncthing
+    - polkit-gnome 

@@ -11,14 +11,14 @@
     - neovim
     - vim
 
-- name: Install Cursor (AUR)
-  kewlfft.aur.aur:
-    name: cursor-bin
-    use: yay
-    state: present 
+#- name: Install Cursor (AUR)
+#  kewlfft.aur.aur:
+#    name: cursor-bin
+#    use: yay
+#    state: present 
 
-- name: Install Claude Code (AUR)
-  kewlfft.aur.aur:
-    name: claude-code-bin
-    use: yay
-    state: present 
+#- name: Install Claude Code (AUR)
+#  kewlfft.aur.aur:
+#    name: claude-code-bin
+#    use: yay
+#    state: present 

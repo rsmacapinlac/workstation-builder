@@ -39,4 +39,5 @@
   kewlfft.aur.aur:
     name: lbdb
     use: yay
-    state: present 
+    state: present
+  become: no 
