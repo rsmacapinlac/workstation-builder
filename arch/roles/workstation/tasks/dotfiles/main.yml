@@ -3,10 +3,9 @@
 
 - name: Install rcm package
   kewlfft.aur.aur:
-    use: makepkg
+    use: yay
     state: present
     name: rcm
-  become: no
 
 - name: Ensure workspace directory exists
   file:
