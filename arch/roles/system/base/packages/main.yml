@@ -25,4 +25,5 @@
     - fastfetch
     - autorandr
     - syncthing
-    - polkit-gnome 
+    - polkit-gnome
+    - seahorse 

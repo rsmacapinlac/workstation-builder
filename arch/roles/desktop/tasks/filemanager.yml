@@ -20,8 +20,16 @@
     - ueberzug
     - w3m
 
-- name: Install Dolphin
+- name: Install Thunar and network browsing support
   become: true
   pacman:
-    name: dolphin
-    state: present 
+    name: "{{item}}"
+    state: present
+  loop:
+    - thunar
+    - thunar-volman
+    - gvfs
+    - gvfs-smb
+    - smbclient
+    - cifs-utils
+    - libsecret 

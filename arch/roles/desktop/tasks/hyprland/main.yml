@@ -90,9 +90,3 @@
     - ttf-fantasque-sans-mono
     - ttf-fantasque-nerd 
 
-- name: Ensure keybinds_current.conf symlink points to enabled by default
-  file:
-    src: "{{ ansible_env.HOME }}/.config/hypr/keybinds_enabled.conf"
-    dest: "{{ ansible_env.HOME }}/.config/hypr/keybinds_current.conf"
-    state: link
-    force: yes 

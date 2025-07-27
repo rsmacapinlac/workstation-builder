@@ -26,6 +26,10 @@
       # File viewers (used in mailcap)
       - feh
       - zathura
+      - zathura-pdf-mupdf
+      - zathura-ps
+      - zathura-djvu
+      - zathura-cb
       # Office document handling
       - libreoffice-still
       # Archive handling
