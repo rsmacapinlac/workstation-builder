@@ -22,7 +22,7 @@
     - grim
     - slurp
     - swww
-    - polkit-gnome
+    # - polkit-gnome
     - gnome-keyring
     - networkmanager
     - network-manager-applet
