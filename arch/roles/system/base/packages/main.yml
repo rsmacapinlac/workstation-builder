@@ -2,12 +2,10 @@
 - name: Remove conflicting polkit packages
   become: true
   pacman:
-    name: "{{item}}"
+    name:
+      - ksshaskpass
+      - polkit-gnome
     state: absent
-  loop:
-    #- polkit-kde-agent
-    - ksshaskpass
-    - polkit-gnome
 
 - name: Install base system packages
   become: true

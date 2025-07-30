@@ -10,6 +10,7 @@
     - firefox
     - qutebrowser
     - yt-dlp
+    - mpv
 
 #- name: Install Zen Browser
 #  become: yes
